@@ -14,7 +14,7 @@ public class ShapeSet {
 
     private Set ksztalty;
     private Iterator it;
-    private List lst;
+    //private List lst;
     
     
     /**
@@ -25,7 +25,7 @@ public class ShapeSet {
                                     //nasz kod przed dodaniem tego samego
                                     //obiektu/ksztaltu do zbioru(elementy 
                                     //nie moga sie powtarzac)
-        lst = new ArrayList();
+        //lst = new ArrayList();
     }
     
     

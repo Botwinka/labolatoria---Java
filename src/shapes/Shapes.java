@@ -77,7 +77,7 @@ public class Shapes {
         {
             //inputStream = new BufferedReader(new FileReader(fileName));
             
-            s = new Scanner(new BufferedReader(new FileReader(fileName)));
+            s = new Scanner(new BufferedReader(new FileReader(fileName)));      //w zadaniu bylo split a ja uzylam scanner jaka roznica?
             //outputStream = new PrintWriter(new FileWriter("5token.txt"));
             s.useDelimiter(",|\n");
             s.useLocale(Locale.US);
@@ -88,7 +88,6 @@ public class Shapes {
             while(s.hasNext())                              //**Jezeli jest jakikolwiek nastepny element
             {
                 String poms = s.next();
-               //**/System.out.println("\t\t\t" +poms);
                 
                 //Kolo
                 if(poms.equals("circle"))               //i ten element jest circle
@@ -104,19 +103,7 @@ public class Shapes {
                             /**/System.out.println("\tdouble " + pom1);
                             shp.addShape(new Circle(pom1));     //add shape
                         }
-                        else                                //w przeciwnym przypadku
-                        {
-                            if(s.hasNext())
-                            {
-                                poms = s.next();    //przejdz do nastepnego elementu
-                                System.out.println("  nxt" + poms);
-                            }
-                        }
                     }
-                }
-                else
-                {
-                    System.out.println(" nie kolko! next!");
                 }
                 
                 
@@ -132,10 +119,6 @@ public class Shapes {
                             double pom1 = s.nextDouble();
                             /**/System.out.println("\tdouble " + pom1);
                             shp.addShape(new Square(pom1));
-                        }
-                        else
-                        {
-                            s.next();
                         }
                     }
                     else
@@ -156,23 +139,15 @@ public class Shapes {
                         /**/System.out.println("\ttrojkat is double next?" + s.hasNextDouble() );
                         if(s.hasNextDouble())
                         {
-                            pom1 = Double.parseDouble(s.next());        //
+                            pom1 = s.nextDouble();        //
                             /**/System.out.println("\tdouble " + pom1);
 
                             if(s.hasNextDouble())
                             {
-                                pom2 = Double.parseDouble(s.next());
+                                pom2 = s.nextDouble();
                                 /**/System.out.println("\tdouble " + pom2);
                                 shp.addShape(new Triangle(pom1, pom2));
                             }
-                            else
-                            {
-                                s.next();
-                            }
-                        }
-                        else
-                        {
-                           s.next();
                         }
 
                     }
@@ -180,30 +155,8 @@ public class Shapes {
                     {
                         System.out.println(" But its not triangle:)");
                     }
-                    /**/System.out.println("next? " + s.hasNext());
                 }
             }
-            
-            /*
-            Shape dsa;      //pomocniczy
-        
-            it = shp.iterator();     //ustawiamy iterator przed 1 elementem shapesetu
-
-            while(it.hasNext()){
-                dsa = (Shape) it.next();
-                lst.add(dsa);               //dodaj ten element do listy
-            }
-            for(int i=0; i<lst.size(); i++)
-            {
-                dsa = (Shape) lst.get(i);       
-                System.out.println(i+ " element - " +lst.get(i) + " - Pole: " + dsa.area());
-            }*/
-            
-            /*
-            while(s.hasNext())
-            {
-                System.out.println(s.next());
-            }*/
         }
         finally
         {
@@ -211,16 +164,6 @@ public class Shapes {
             {
                 s.close();
             }
-            /*
-            if(inputStream != null)
-            {
-                inputStream.close();
-            }*/
-            /*
-            if(outputStream != null)
-            {
-                outputStream.close();
-            }*///
             
         }
         
